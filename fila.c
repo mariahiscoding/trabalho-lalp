@@ -50,6 +50,8 @@ void fila_remove(Fila *f) {
     No *aux = f->inicio;
 
     aux->prox = aux->prox->prox;
+    f->inicio->prox = aux->prox;
+    free(aux);
 
 
 }
