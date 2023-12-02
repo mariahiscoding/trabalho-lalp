@@ -1,6 +1,8 @@
 /*
 Maria Paula Ferreira Maia
 Matrícula: 20232010327
+Nicolly Carolina da Silva Fernandes
+Matrícula: 20232010265
 Polyana Melissa Teixeira Neves
 Matrícula: 20232017408
 */
