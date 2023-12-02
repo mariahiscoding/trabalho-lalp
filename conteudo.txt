@@ -1,7 +1,9 @@
-Wanda Maximoff, Redes de Computadores, 01/12/2008, 20222010777, ativo
-Thor Odinson, Informática, 23/02/2009, 20232010468, ativo
 Anthony Edward Stark, Redes de Computadores, 16/06/2007, 20232010896, inativo
 Natalia Alianovna Romanoff, Engenharia de Computação, 10/10/2004, 20232010854, inativo
 Robert Bruce Banne, Redes de Computadores, 13/09/2009, 20232010567, inativo
 Patricia Walker, Eletrônica, 04/05/2007, 20232010523, inativo
 Steven Grant Rogers, Redes de Computadores, 28/02/2008, 19171800326, inativo
+Maria Paula Ferreira, Redes de Computadores, 12/07/2006, 20232010327, ativo
+Maria Luiza Domingues, Redes de Computadores, 05/12/2007, 20232010256, ativo
+Nicolly Carolina, Redes de Computadores, 12/07/2006, 20232561985, ativo
+Agatha Vieira, Redes de Computadores, 23/08/2006, 20232010596, ativo

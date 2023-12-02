@@ -68,8 +68,8 @@ void desenfileira_fila(Fila *f){
 }
 
 void desaloca_fila(Fila *f){
-    No *aux = f->inicio;
-    if(aux->prox != NULL)
+    No *aux = f->inicio->prox;
+    if(aux != NULL)
         desenfileira_fila(f);
     free(aux);
     f = NULL;
@@ -111,12 +111,11 @@ void le_arquivo(Fila *fila, FILE *file){
 
 void salvar_fila(Fila *fila){
     No *aux = fila->inicio->prox;
-    FILE *arq;
-    char arquivo[] = "cont.txt";
-    arq = fopen(arquivo, "w+");
+    FILE * arq;
+    arq = fopen("conteudo.txt", "w+");
 
     while(aux != NULL){
-        fprintf(arq, "Nome: ");
+        fprintf(arq ,"%s, %s, %s, %s, %s\n", aux->nome, aux->curso, aux->data, aux->matricula, aux->saldo);
  
         aux = aux->prox;
     }
