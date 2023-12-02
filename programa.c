@@ -21,6 +21,7 @@ int main() {
 
     printf("Fila inicial:\n");
     fila_imprime(&fila);
+
     while (1){
         printf("Escolha uma das seguintes opções digitando o número referente a sua escolha:\n  1.Enfileira: adicionar os dados de uma pessoa a lista\n  2.Desenfileira:Retira a primeira pessoa da fila\n  3.Salvar conteudo da lista\n  4.Fechar implementação da lista e salvar arquivo\n");
         scanf("%d", &opcao);

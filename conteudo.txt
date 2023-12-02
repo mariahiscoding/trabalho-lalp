@@ -1,6 +1,5 @@
-Anthony Edward Stark, Redes de Computadores, 16/06/2007, 20232010896, inativo
-Natalia Alianovna Romanoff, Engenharia de Computação, 10/10/2004, 20232010854, inativo
-Robert Bruce Banne, Redes de Computadores, 13/09/2009, 20232010567, inativo
+Thor Odinson, Informática, 23/02/2009, 20232010101, inativo
+Anthony Edward Stark, Redes de Computadores, 16/06/2007, 20232010658, inativo
 Patricia Walker, Eletrônica, 04/05/2007, 20232010523, inativo
 Steven Grant Rogers, Redes de Computadores, 28/02/2008, 19171800326, inativo
 Maria Paula Ferreira, Redes de Computadores, 12/07/2006, 20232010327, ativo

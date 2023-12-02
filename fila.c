@@ -47,33 +47,24 @@ void fila_insere_final(Fila *f, char nome[], char curso[], char dia[], char mes[
 }
 
 void fila_remove(Fila *f) {
-    No *aux = f->inicio;
-
-    aux->prox = aux->prox->prox;
-    f->inicio->prox = aux->prox;
-    free(aux);
-
-
+    f->inicio->prox = f->inicio->prox->prox;
 }
-void desenfileira_fila(Fila *f){
-    No *aux = f->inicio;
 
-    if(aux->prox == NULL){
+void desenfileira_fila(Fila *f){
+    if(f->inicio->prox == NULL){
         return;
     }
 
-    while(aux->prox != NULL){
-        aux->prox = aux->prox->prox;
+    while(f->inicio->prox != NULL){
+        f->inicio->prox = f->inicio->prox->prox;
     }
-    desaloca_fila(f);
 
 }
 
 void desaloca_fila(Fila *f){
-    No *aux = f->inicio->prox;
-    if(aux != NULL)
+    if(f->inicio->prox != NULL)
         desenfileira_fila(f);
-    free(aux);
+    free(f->inicio);
     f = NULL;
 }
 
