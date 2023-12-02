@@ -1,44 +1,34 @@
-#include "fila.h"
+/*
+Maria Paula Ferreira Maia
+Matrícula: 20232010327
+Polyana Melissa Teixeira Neves
+Matrícula: 20232017408
+*/
+
 #include <stdio.h>
+#include "fila.h"
 
 int main() {
     Fila fila;
-    No generico;
-    int n, i;
-    char nome[60], curso[30];
+    FILE *file;
+    file = fopen("conteudo.txt", "r+");
+
 
     fila = fila_cria();
+    printf("%d\n", fila_vazia(&fila));  
 
-    printf("Lista vazia? %d\n", fila_vazia(&fila));
-
-    //quantidade de nomes a inserir na lista
-    scanf("%d", &n);
-
-    getchar();
-
-    //insere nomes na lista
-    for(i=0; i<n; i++) {
-        scanf("%s, %s, %d, %lf", nome, curso, &generico.matricula, &generico.saldo);
-        getchar();
-        strcpy(generico.nome, nome);
-        strcpy(generico.curso, curso);
-
-        fila_insere_final(&fila, generico);
-    }
-
-    printf("Lista vazia? %d\n\n", fila_vazia(&fila));
-
-    //imprime conteudo
+    le_arquivo(&fila, file);
+    
+    fila_imprime(&fila);
+    
+    fila_remove(&fila);
+    fila_imprime(&fila);
+    
+    desenfileira_fila(&fila);
     fila_imprime(&fila);
 
-    // //pesquisa por Joselito
-    // aux = lista_pesquisa(&lista, "Joselito");
-
-    // if(lista_remove(&lista, aux))
-    //     printf("Joselito está fora! :-(\n\n");
     
-    // //imprime conteudo
-    // lista_imprime(&lista);
+    salvar_fila(&fila);
 
     return 0;
 }

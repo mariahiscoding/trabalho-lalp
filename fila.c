@@ -8,64 +8,120 @@ Matrícula: 20232017408
 #include "fila.h"
 
 Fila fila_cria() {
-    Fila l;
-    l.inicio = (No *) malloc(sizeof(No));
-
-    l.inicio->prox = NULL;
-    l.fim = l.inicio;
-
-    return l;
+    Fila f; 
+    f.inicio = (No*)malloc(sizeof(No));
+    f.inicio->prox = NULL;
+    f.fim = f.inicio;
+    return f;
 }
 
-int fila_vazia(Fila *l) {
-    return l->fim == l->inicio;
+int fila_vazia(Fila *f) {
+    return f->fim == f->inicio;
 }
 
-void fila_insere_final(Fila *l, No generico) {
+void fila_insere_final(Fila *f, char nome[], char curso[], char dia[], char mes[], char ano[], char matricula[], char saldo[]) {
     No *aux = (No *) malloc(sizeof(No));
-    
-    strcpy(aux->nome, generico.nome);
-    strcpy(aux->curso, generico.curso);
-    //aux.data = generico.data;
-    aux->matricula = generico.matricula;
-    aux->saldo = generico.saldo;
+    char data[11];
+    data[0] = dia[0];
+    data[1] = dia[1];
+    data[2] = '/';
+    data[3] = mes[0];
+    data[4] = mes[1];
+    data[5] = '/';
+    data[6] = ano[0];
+    data[7] = ano[1];
+    data[8] = ano[2];
+    data[9] = ano[3];
+    data[10] = '\0';
+
+    strcpy(aux->nome, nome);
+    strcpy(aux->curso, curso);
+    strcpy(aux->data, data);
+    strcpy(aux->matricula, matricula);
+    strcpy(aux->saldo, saldo);
 
 
-    //faz prox do fim apontar para aux, prox do aux apontar para NULL e fim apontar para aux
-    l->fim->prox = aux;
+    f->fim->prox = aux;
     aux->prox = NULL;
-    l->fim = aux;
+    f->fim = aux;
 }
 
-// int lista_remove(Lista *l, No *atual) {
-//     int removeu = 0;
-//     No *aux = l->inicio->prox;
+void fila_remove(Fila *f) {
+    No *aux = f->inicio;
 
-//     //pesquisa ate que o prox do aux aponte para o atual
-//     while(aux->prox != atual && aux->prox != NULL)
-//         aux = aux->prox;
+    aux->prox = aux->prox->prox;
 
-//     if(aux->prox == atual) {
-//         //prox do aux aponta para o prox do aux, isolando o atual da lista
-//         aux->prox = atual->prox;
 
-//         //desaloca o atual
-//         free(atual);
-//         atual = NULL;
+}
+void desenfileira_fila(Fila *f){
+    No *aux = f->inicio;
 
-//         removeu = 1;
-//     }
+    if(aux->prox == NULL){
+        return;
+    }
 
-//     return removeu;
-// }
+    while(aux->prox != NULL){
+        aux->prox = aux->prox->prox;
+    }
+    desaloca_fila(f);
 
-void fila_imprime(Fila *l) {
-    No *aux = l->inicio->prox;
+}
+
+void desaloca_fila(Fila *f){
+    No *aux = f->inicio;
+    if(aux->prox != NULL)
+        desenfileira_fila(f);
+    free(aux);
+    f = NULL;
+}
+
+void fila_imprime(Fila *f) {
+    No *aux = f->inicio->prox;
 
     while(aux != NULL) {
-        printf("%s\n %s\n %d\n  %lf\n", aux->nome, aux->curso, aux->matricula, aux->saldo);
-
+    printf( "%s, %s, %s, %s, %s\n", aux->nome, aux->curso, aux->data, aux->matricula, aux->saldo);
         aux = aux->prox;
     }
     printf("\n");
+}
+
+void le_arquivo(Fila *fila, FILE *file){
+    char nome[60], curso[30], dia[3], mes[3], ano[5], matricula[12], saldo[8];
+    while (fscanf(file, "%[^,]s", nome) != EOF){
+        fgetc(file);
+        fgetc(file);
+        fscanf(file, "%[^,]s", curso);
+        fgetc(file);
+        fgetc(file);
+        fscanf(file, "%[^/]s", dia);
+        fgetc(file);
+        fscanf(file, "%[^/]s", mes);
+        fgetc(file);
+        fscanf(file, "%[^,]s", ano);
+        fgetc(file);
+        fgetc(file);
+        fscanf(file, "%[^,]s", matricula);
+        fgetc(file);
+        fgetc(file);
+        fscanf(file, "%[^\n]s", saldo);
+        fgetc(file);
+        fila_insere_final(fila, nome, curso, dia, mes, ano, matricula, saldo); 
+    }
+}
+
+void salvar_fila(Fila *fila){
+    No *aux = fila->inicio->prox;
+    FILE *arq;
+    char arquivo[] = "cont.txt";
+    arq = fopen(arquivo, "w+");
+
+    while(aux != NULL){
+        fprintf(arq, "Nome: ");
+ 
+        aux = aux->prox;
+    }
+    
+
+    fclose(arq);
+    
 }
