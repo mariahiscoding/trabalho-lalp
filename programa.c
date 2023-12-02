@@ -59,7 +59,6 @@ int main() {
 
         case 4:
             salvar_fila(&fila);
-            desenfileira_fila(&fila);
             desaloca_fila(&fila);
             break;
         default:
